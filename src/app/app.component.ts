@@ -23,7 +23,7 @@ export class AppComponent {
 
   AgregaroEditar(){
     if (this.selectedEmployee.id == 0) {
-      this.selectedEmployee.id= this.empleadoArreglo.length+1;
+      this.selectedEmployee.id= Math.max(...this.empleadoArreglo.map(empleado => empleado.id),0)+1;
       this.empleadoArreglo.push(this.selectedEmployee);
     }
     this.selectedEmployee= new Empleado();
